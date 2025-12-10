@@ -2,3 +2,7 @@
   margin: auto;
   max-width: 50rem;
 }
+
+li {
+  list-style-type: none;
+}
