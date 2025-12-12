@@ -2,13 +2,13 @@ import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
-const ChatEntry = (props) => {
+const ChatEntry = ({ sender, body, timeStamp, liked }) => {
   return (
     <article className="chat-entry local">
-      <h2 className="entry-name">{props.sender}</h2>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{props.body}</p>
-        <p className="entry-time"><TimeStamp time={props.timeStamp}></TimeStamp></p>
+        <p>{body}</p>
+        <p className="entry-time"><TimeStamp time={timeStamp}></TimeStamp></p>
         <button className="like">🤍</button>
       </section>
     </article>

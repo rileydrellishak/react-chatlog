@@ -2,8 +2,8 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = (props) => {
-  const chatEntryComponents = props.entries.map((msgData, index) => {
+const ChatLog = ({ entries }) => {
+  const chatEntryComponents = entries.map((msgData, index) => {
     return (
       <li key={index}>
         <ChatEntry
