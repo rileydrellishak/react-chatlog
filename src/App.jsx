@@ -1,8 +1,11 @@
 import './App.css';
 import ChatLog from './components/ChatLog';
-import messages from './data/messages.json';
+import data from './data/messages.json';
+import { useState } from 'react';
 
 const App = () => {
+  const [messages, setMessages] = useState(data);
+
   return (
     <div id="App">
       <header>
