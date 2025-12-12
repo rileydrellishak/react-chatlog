@@ -2,9 +2,9 @@ import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
-const ChatEntry = ({ sender, body, timeStamp, liked }) => {
+const ChatEntry = ({ key, sender, body, timeStamp, liked }) => {
   return (
-    <article className="chat-entry local">
+    <article className="chat-entry local" id={key}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>

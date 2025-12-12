@@ -23,4 +23,10 @@ const ChatLog = ({ entries }) => {
   );
 };
 
+ChatLog.propTypes = PropTypes.arrayOf({
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+}).isRequired;
+
 export default ChatLog;

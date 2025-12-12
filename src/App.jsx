@@ -7,6 +7,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat Between {messages[0].sender} and {messages[1].sender}</h1>
+        <h2>0 ❤️s</h2>
       </header>
       <main>
         <ChatLog entries={messages}></ChatLog>
