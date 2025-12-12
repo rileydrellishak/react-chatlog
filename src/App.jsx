@@ -6,14 +6,31 @@ import { useState } from 'react';
 const App = () => {
   const [messages, setMessages] = useState(data);
 
+  const calculateHearts = () => {
+    let count = 0
+    for (const message of messages) {
+      if (message.liked) count += 1;
+    } return count;
+  };
+
+  const toggleHeart = (messageId) => {
+    const messages = messages.map(message => {
+      if (message.id === messageId) {
+        return {...message, liked: !message.liked}
+      } else {
+        return message;
+      }
+    }); setMessages(messages);
+  };
+
   return (
     <div id="App">
       <header>
         <h1>Chat Between {messages[0].sender} and {messages[1].sender}</h1>
-        <h2>0 ❤️s</h2>
+        <h2>{calculateHearts()} ❤️s</h2>
       </header>
       <main>
-        <ChatLog entries={messages}></ChatLog>
+        <ChatLog entries={messages} toggleLiked={toggleHeart}></ChatLog>
       </main>
     </div>
   );
