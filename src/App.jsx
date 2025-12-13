@@ -7,20 +7,20 @@ const App = () => {
   const [messages, setMessages] = useState(data);
 
   const calculateHearts = () => {
-    let count = 0
+    let count = 0;
     for (const message of messages) {
       if (message.liked) count += 1;
     } return count;
   };
 
   const toggleHeart = (messageId) => {
-    const messages = messages.map(message => {
+    const updatedMessages = messages.map(message => {
       if (message.id === messageId) {
-        return {...message, liked: !message.liked}
+        return {...message, liked: !message.liked};
       } else {
         return message;
       }
-    }); setMessages(messages);
+    }); setMessages(updatedMessages);
   };
 
   return (
@@ -30,7 +30,7 @@ const App = () => {
         <h2>{calculateHearts()} ❤️s</h2>
       </header>
       <main>
-        <ChatLog entries={messages} toggleLiked={toggleHeart}></ChatLog>
+        <ChatLog entries={messages} onHeartToggle={toggleHeart}></ChatLog>
       </main>
     </div>
   );
