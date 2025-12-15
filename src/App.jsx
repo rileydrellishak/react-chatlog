@@ -5,11 +5,7 @@ import { useState } from 'react';
 
 const localOrRemote = (data) => {
   for (const msg of data) {
-    if (msg.sender === 'Estragon') {
-      msg.role = 'remote';
-    } else {
-      msg.role = 'local';
-    }
+    msg.sender === 'Estragon' ? msg.role = 'remote': msg.role = 'local';
   } return data;
 };
 
@@ -19,7 +15,7 @@ const App = () => {
   const calculateHearts = () => {
     let count = 0;
     for (const message of messages) {
-      if (message.liked) count += 1;
+      message.liked ? count += 1: count;
     } return count;
   };
 

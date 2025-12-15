@@ -18,11 +18,7 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, role, onHeartToggle }) 
   };
 
   const classNameMsg = (role) => {
-    if (role === 'local') {
-      return 'chat-entry local';
-    } else {
-      return 'chat-entry remote';
-    }
+    return role === 'local' ? 'chat-entry local': 'chat-entry remote';
   };
 
   return (
