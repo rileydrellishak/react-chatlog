@@ -12,6 +12,7 @@ const ChatLog = ({ entries, onHeartToggle }) => {
           body={msgData.body}
           timeStamp={msgData.timeStamp}
           liked={msgData.liked}
+          role={msgData.role}
           onHeartToggle={onHeartToggle}>
         </ChatEntry>
       </li>
@@ -31,6 +32,7 @@ ChatLog.propTypes = {
     body: PropTypes.string.isRequired,
     timeStamp: PropTypes.string.isRequired,
     liked: PropTypes.bool.isRequired,
+    role: PropTypes.string.isRequired
   })).isRequired,
   onHeartToggle: PropTypes.func.isRequired
 };

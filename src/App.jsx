@@ -3,8 +3,18 @@ import ChatLog from './components/ChatLog';
 import data from './data/messages.json';
 import { useState } from 'react';
 
+const localOrRemote = (data) => {
+  for (const msg of data) {
+    if (msg.sender === 'Estragon') {
+      msg.role = 'remote';
+    } else {
+      msg.role = 'local';
+    }
+  } return data;
+};
+
 const App = () => {
-  const [messages, setMessages] = useState(data);
+  const [messages, setMessages] = useState(localOrRemote(data));
 
   const calculateHearts = () => {
     let count = 0;

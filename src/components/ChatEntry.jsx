@@ -3,7 +3,9 @@ import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const ChatEntry = ({ id, sender, body, timeStamp, liked, onHeartToggle }) => {
+// goal: Vladmir is remote, Estragon is local. assign css class accordingly .remote vs. .local
+
+const ChatEntry = ({ id, sender, body, timeStamp, liked, role, onHeartToggle }) => {
   const [isLiked, setIsLiked] = useState(liked);
 
   const clickHeart = () => {
@@ -15,8 +17,16 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, onHeartToggle }) => {
     return isLiked ? '❤️': '🤍';
   };
 
+  const classNameMsg = (role) => {
+    if (role === 'local') {
+      return 'chat-entry local';
+    } else {
+      return 'chat-entry remote';
+    }
+  };
+
   return (
-    <article className="chat-entry local" id={id}>
+    <article className={classNameMsg(role)} id={id}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
@@ -33,6 +43,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
+  role: PropTypes.string.isRequired,
   onHeartToggle: PropTypes.func.isRequired,
 };
 
