@@ -1,20 +1,15 @@
 import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
-// goal: Vladmir is remote, Estragon is local. assign css class accordingly .remote vs. .local
-
-const ChatEntry = ({ id, sender, body, timeStamp, liked, role, onHeartToggle }) => {
-  const [isLiked, setIsLiked] = useState(liked);
+const ChatEntry = ({ id, sender, body, timeStamp, liked, role, onClickHeart }) => {
 
   const clickHeart = () => {
-    setIsLiked(!isLiked);
-    onHeartToggle(id);
+    onClickHeart(id);
   };
 
   const displayHeart = () => {
-    return isLiked ? '❤️': '🤍';
+    return liked ? '❤️': '🤍';
   };
 
   const classNameMsg = (role) => {
@@ -40,7 +35,7 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
   role: PropTypes.string.isRequired,
-  onHeartToggle: PropTypes.func.isRequired,
+  onClickHeart: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
