@@ -20,7 +20,7 @@ const App = () => {
     } return count;
   };
 
-  const toggleHeart = (messageId) => {
+  const handleClickHeart = (messageId) => {
     const updatedMessages = messages.map(message => {
       if (message.id === messageId) {
         return {...message, liked: !message.liked};
@@ -41,7 +41,7 @@ const App = () => {
         </section>
       </header>
       <main>
-        <ChatLog entries={messages} onHeartToggle={toggleHeart}></ChatLog>
+        <ChatLog entries={messages} onClickHeart={handleClickHeart}></ChatLog>
       </main>
     </div>
   );
