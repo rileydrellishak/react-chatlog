@@ -1,5 +1,6 @@
 import './App.css';
 import ChatLog from './components/ChatLog';
+import ColorChoice from './components/ColorChoice';
 import data from './data/messages.json';
 import { useState } from 'react';
 
@@ -33,7 +34,11 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat Between {messages[0].sender} and {messages[1].sender}</h1>
-        <h2>{calculateHearts()} ❤️s</h2>
+        <section className='status'>
+          <ColorChoice name={messages[0].sender}></ColorChoice>
+          <h2>{calculateHearts()} ❤️s</h2>
+          <ColorChoice name={messages[1].sender}></ColorChoice>
+        </section>
       </header>
       <main>
         <ChatLog entries={messages} onHeartToggle={toggleHeart}></ChatLog>

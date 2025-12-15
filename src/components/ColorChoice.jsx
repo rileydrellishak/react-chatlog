@@ -1,11 +1,19 @@
-import './App.css';
-import ChatLog from './components/ChatLog';
-import data from './data/messages.json';
-import { useState } from 'react';
+import '../App.css';
+import './ColorChoice.css';
 
-const ColorChoice = () => {
+const ColorChoice = ({ name }) => {
   return (
-
+    <section className='color-selector'>
+      <h3>{name}'s color:</h3>
+      <section className='buttons'>
+        <button>🍓</button>
+        <button>🍊</button>
+        <button>🍋</button>
+        <button>🍏</button>
+        <button>🫐</button>
+        <button>🍇</button>
+      </section>
+    </section>
   );
 };
 
