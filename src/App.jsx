@@ -10,8 +10,14 @@ const localOrRemote = (data) => {
   } return data;
 };
 
+const defaultColor = (data) => {
+  for (const msg of data) {
+    msg.role === 'remote' ? msg.color = 'blue': msg.color = 'green';
+  } return data;
+};
+
 const App = () => {
-  const [messages, setMessages] = useState(localOrRemote(data));
+  const [messages, setMessages] = useState(defaultColor(localOrRemote(data)));
 
   const calculateHearts = () => {
     let count = 0;
@@ -30,14 +36,24 @@ const App = () => {
     }); setMessages(updatedMessages);
   };
 
+  const handleClickColor = (sender, buttonColor) => {
+    const updatedMessages = messages.map(msg => {
+      if (msg.sender === sender) {
+        return {...msg, color: buttonColor};
+      } else {
+        return msg;
+      }
+    }); setMessages(updatedMessages);
+  };
+
   return (
     <div id="App">
       <header>
         <h1>Chat Between {messages[0].sender} and {messages[1].sender}</h1>
         <section className='status'>
-          <ColorChoice name={messages[0].sender}></ColorChoice>
+          <ColorChoice name={messages[0].sender} onClickColor={handleClickColor}></ColorChoice>
           <h2>{calculateHearts()} ❤️s</h2>
-          <ColorChoice name={messages[1].sender}></ColorChoice>
+          <ColorChoice name={messages[1].sender} onClickColor={handleClickColor}></ColorChoice>
         </section>
       </header>
       <main>

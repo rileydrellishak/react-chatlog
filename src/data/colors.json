@@ -1,0 +1,26 @@
+[
+    {
+        "emoji": "🍓",
+        "cssClassName": "red"
+    },
+    {
+        "emoji": "🍊",
+        "cssClassName": "orange"
+    },
+    {
+        "emoji": "🍋",
+        "cssClassName": "yellow"
+    },
+    {
+        "emoji": "🍏",
+        "cssClassName": "green"
+    },
+    {
+        "emoji": "🫐",
+        "cssClassName": "blue"
+    },
+    {
+        "emoji": "🍇",
+        "cssClassName": "purple"
+    }
+]
