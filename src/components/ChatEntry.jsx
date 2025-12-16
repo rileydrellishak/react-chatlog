@@ -1,28 +1,50 @@
 import './ChatEntry.css';
-import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
-const ChatEntry = ({ id, sender, body, timeStamp, liked, role, color, onClickHeart }) => {
+import TimeStamp from './TimeStamp';
+
+const ChatEntry = ({
+  id,
+  sender,
+  body,
+  timeStamp,
+  liked,
+  role,
+  color,
+  onClickHeart
+}) => {
 
   const clickHeart = () => {
     onClickHeart(id);
   };
 
-  const displayHeart = () => {
-    return liked ? '❤️': '🤍';
-  };
+  const displayHeart = liked ? '❤️': '🤍';
 
-  const roleClass = (role) => {
-    return role === 'local' ? 'chat-entry local': 'chat-entry remote';
-  };
+  const roleClass =
+    role === 'local'
+      ? 'chat-entry local'
+      : 'chat-entry remote';
 
   return (
-    <article className={roleClass(role)} id={id}>
+    <article
+      className={roleClass}
+      id={id}
+    >
       <h2 className="entry-name">{sender}</h2>
+
       <section className="entry-bubble">
         <p className={color}>{body}</p>
-        <p className="entry-time"><TimeStamp time={timeStamp}></TimeStamp></p>
-        <button className="like" onClick={clickHeart}>{displayHeart()}</button>
+
+        <p className="entry-time">
+          <TimeStamp time={timeStamp}/>
+        </p>
+
+        <button
+          className="like"
+          onClick={clickHeart}
+        >
+          {displayHeart}
+        </button>
       </section>
     </article>
   );

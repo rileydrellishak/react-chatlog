@@ -52,8 +52,9 @@
   margin: 1em
 }
 
-#App span {
-  display: inline-block
+#App mark {
+  display: inline-block;
+  background-color: transparent;
 }
 
 .red {
