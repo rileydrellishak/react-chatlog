@@ -34,7 +34,7 @@ ChatLog.propTypes = {
     timeStamp: PropTypes.string.isRequired,
     liked: PropTypes.bool.isRequired,
     role: PropTypes.string,
-    color: PropTypes.string.isRequired
+    color: PropTypes.string
   })).isRequired,
   onClickHeart: PropTypes.func
 };

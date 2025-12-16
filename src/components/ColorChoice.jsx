@@ -1,6 +1,7 @@
 import '../App.css';
 import './ColorChoice.css';
 import colorData from '../data/colors.json';
+import PropTypes from 'prop-types';
 
 const ColorChoice = ({ name, color, onClickColor }) => {
   const clickColor = (event) => {
@@ -21,6 +22,12 @@ const ColorChoice = ({ name, color, onClickColor }) => {
       </section>
     </section>
   );
+};
+
+ColorChoice.propTypes = {
+  name: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  onClickColor: PropTypes.func.isRequired
 };
 
 export default ColorChoice;
