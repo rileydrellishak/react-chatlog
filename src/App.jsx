@@ -51,9 +51,9 @@ const App = () => {
       <header>
         <h1>Chat Between {messages[0].sender} and {messages[1].sender}</h1>
         <section className='status'>
-          <ColorChoice name={messages[0].sender} onClickColor={handleClickColor}></ColorChoice>
+          <ColorChoice name={messages[0].sender} color={messages[0].color}onClickColor={handleClickColor}></ColorChoice>
           <h2>{calculateHearts()} ❤️s</h2>
-          <ColorChoice name={messages[1].sender} onClickColor={handleClickColor}></ColorChoice>
+          <ColorChoice name={messages[1].sender} color={messages[1].color}onClickColor={handleClickColor}></ColorChoice>
         </section>
       </header>
       <main>

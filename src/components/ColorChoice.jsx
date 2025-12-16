@@ -2,7 +2,7 @@ import '../App.css';
 import './ColorChoice.css';
 import colorData from '../data/colors.json';
 
-const ColorChoice = ({ name, onClickColor }) => {
+const ColorChoice = ({ name, color, onClickColor }) => {
   const clickColor = (event) => {
     const newColor = colorData.find(color => color.emoji === event.target.textContent).cssClassName;
     onClickColor(name, newColor);
@@ -10,7 +10,7 @@ const ColorChoice = ({ name, onClickColor }) => {
 
   return (
     <section className='color-selector'>
-      <h3>{name}'s color:</h3>
+      <h3 className={color}>{name}'s color:</h3>
       <section className='buttons'>
         <button onClick={clickColor}>🍓</button>
         <button onClick={clickColor}>🍊</button>
