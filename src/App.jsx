@@ -49,15 +49,35 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Chat Between {messages[0].sender} and {messages[1].sender}</h1>
+
+        <h1>Chat Between <span className={messages[0].color}>
+          {messages[0].sender}</span> and <span className={messages[1].color}>
+          {messages[1].sender}
+        </span>
+        </h1>
+
         <section className='status'>
-          <ColorChoice name={messages[0].sender} color={messages[0].color}onClickColor={handleClickColor}></ColorChoice>
+          <ColorChoice
+            name={messages[0].sender}
+            color={messages[0].color}
+            onClickColor={handleClickColor}
+          />
+
           <h2>{calculateHearts()} ❤️s</h2>
-          <ColorChoice name={messages[1].sender} color={messages[1].color}onClickColor={handleClickColor}></ColorChoice>
+
+          <ColorChoice
+            name={messages[1].sender}
+            color={messages[1].color}
+            onClickColor={handleClickColor}
+          />
         </section>
       </header>
+
       <main>
-        <ChatLog entries={messages} onClickHeart={handleClickHeart}></ChatLog>
+        <ChatLog
+          entries={messages}
+          onClickHeart={handleClickHeart}>
+        </ChatLog>
       </main>
     </div>
   );
